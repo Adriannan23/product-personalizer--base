@@ -2,7 +2,7 @@ import styles from './Button.module.scss';
 import clsx from 'clsx';
 
 
-const Button = (props) => {
+const Button = props => {
     return (<button type="button" className={clsx(styles.button, props.className)} onClick={props.action}>{props.children}</button>);
 };
 
