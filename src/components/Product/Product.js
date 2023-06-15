@@ -3,9 +3,9 @@ import clsx from 'clsx';
 import Button from '../Button/Button';
 import { useState } from 'react';
 
-
-
 const Product = props => {
+
+
 
   const [currentSize, setCurrentSize] = useState(props.sizes[0]);
   const [currentColor, setCurrentColor] = useState(props.colors[0]);
@@ -22,6 +22,13 @@ const Product = props => {
 
   //   // setCurrentAdditionalPrice(size.additionalPrice);
   // };
+
+  const handleClick = () => {
+    console.log(`Name: `)
+    console.log(`Price: `)
+    console.log(`Size: `)
+    console.log(`Color: `)
+  }
 
   return (
     <article className={styles.product}>
@@ -59,7 +66,7 @@ const Product = props => {
                 </li>)}
             </ul>
           </div>
-          <Button className={styles.button}>
+          <Button className={styles.button} >
             <span className="fa fa-shopping-cart" />
           </Button>
         </form>
