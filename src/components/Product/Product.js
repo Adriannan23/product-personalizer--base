@@ -23,11 +23,14 @@ const Product = props => {
   //   // setCurrentAdditionalPrice(size.additionalPrice);
   // };
 
-  const handleClick = () => {
-    console.log(`Name: `)
-    console.log(`Price: `)
-    console.log(`Size: `)
-    console.log(`Color: `)
+  const handleClick = (event) => {
+    event.preventDefault();
+    console.log(`Summary`)
+    console.log(`================`)
+    console.log(`Name: ${props.title}`)
+    console.log(`Price: ${getPrice()}`)
+    console.log(`Size: ${currentSize.name}`)
+    console.log(`Color: ${currentColor}`)
   }
 
   return (
@@ -66,7 +69,7 @@ const Product = props => {
                 </li>)}
             </ul>
           </div>
-          <Button className={styles.button} >
+          <Button className={styles.button} action={handleClick}>
             <span className="fa fa-shopping-cart" />
           </Button>
         </form>
