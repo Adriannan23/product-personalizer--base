@@ -1,11 +1,20 @@
+import clsx from 'clsx';
 const OptionSize = props => {
 
+  const { sizesStyles,
+    sizesOptionLabel,
+    stylesChoices,
+    sizesActive,
+    currentSize,
+    setCurrentSize,
+    sizes } = props;
+
   return (
-    <div className={styles.sizes}>
-      <h3 className={styles.optionLabel}>Sizes</h3>
-      <ul className={styles.choices}>
-        {props.sizes.map(size => <li key={size}><button type="button"
-          className={clsx({ [styles.active]: currentSize === size })}
+    <div className={sizesStyles}>
+      <h3 className={sizesOptionLabel}>Sizes</h3>
+      <ul className={stylesChoices}>
+        {props.sizes.map(size => <li key={size.name}><button type="button"
+          className={clsx({ [sizesActive]: currentSize === size })}
           onClick={() => setCurrentSize(size)}
         >{size.name}
         </button>
