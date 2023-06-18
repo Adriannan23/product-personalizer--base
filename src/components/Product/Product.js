@@ -1,5 +1,5 @@
 import styles from './Product.module.scss';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import ProductImage from '../ProductImage/ProductImage';
 import ProductForm from '../ProductForm/ProductForm';
 
@@ -10,16 +10,16 @@ const Product = props => {
 
   const [currentColor, setCurrentColor] = useState(props.colors[0]);
 
-  const getPrice = () => {
+  const getPrice = useMemo(() => {
     return currentSize.additionalPrice + props.basePrice;
-  };
+  }, [currentSize]);
 
   const handleClick = (event) => {
     event.preventDefault();
     console.log(`Summary`)
     console.log(`================`)
     console.log(`Name: ${props.title}`)
-    console.log(`Price: ${getPrice()}`)
+    console.log(`Price: ${getPrice}`)
     console.log(`Size: ${currentSize.name}`)
     console.log(`Color: ${currentColor}`)
   }
@@ -36,7 +36,7 @@ const Product = props => {
       <div>
         <header>
           <h2 className={styles.name}>{props.title}</h2>
-          <span className={styles.price}>Price: {getPrice()}$</span>
+          <span className={styles.price}>Price: {getPrice}$</span>
         </header>
         <ProductForm
           handleClick={handleClick}

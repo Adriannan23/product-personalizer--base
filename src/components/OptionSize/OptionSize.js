@@ -7,7 +7,7 @@ const OptionSize = props => {
     sizesActive,
     currentSize,
     setCurrentSize,
-    sizes } = props;
+  } = props;
 
   return (
     <div className={sizesStyles}>
